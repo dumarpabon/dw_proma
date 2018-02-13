@@ -35,15 +35,13 @@ class certificacion(models.Model):
     numero_certificado = fields.Char(string="Numero del Certificado")
     fecha_expedicion = fields.Date(string="Fecha de Expedicion")
     fecha_vencimiento = fields.Date(string="Fecha de Vencimiento")
-    d = fecha_vencimiento.split('/')
-    fecha_a_calcular = datetime.strptime(d[2] + d[1] + d[0],'%Y%m%d').date()
-    calcdate = datetime.now().date() - fecha_a_calcular
-    remanente = calcdate.days / 365
+
+
+
     archivo = fields.Char(string="Archivo")
     personal_id = fields.Many2one('dw_proma.empleado', string="Empleado")
     observaciones = fields.Text(string="Observaciones")
-    vencimiento = fields.Boolean(string="Esta vencido?");
-
+    
 class aeronave(models.Model):
     _name = 'dw_proma.aeronave'
 
