@@ -1,0 +1,61 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+      <record model="ir.ui.view" id="dw_proma.list_alertas">
+      <field name="name">Listado Alertas</field>
+      <field name="model">dw_proma.alerta</field>
+      <field name="arch" type="xml">
+        <tree>
+
+
+        </tree>
+      </field>
+    </record>
+
+
+
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="dw_proma.action_window_alerta">
+      <field name="name">Ventana de Alertas</field>
+      <field name="res_model">dw_proma.alerta</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="dw_proma.action_server">
+      <field name="name">dw_proma server</field>
+      <field name="model_id" ref="model_dw_proma_dw_proma"/>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+
+
+
+    <!-- menu categories -->
+
+    <menuitem name="Alertas" id="dw_proma.alertas" parent="dw_proma.menu_root"/>
+
+
+    <!-- actions -->
+
+    <menuitem name="Alertas" id="dw_proma.alertas_list" parent="dw_proma.alertas"
+              action="dw_proma.action_window_alerta"/>
+
+
+  </data>
+</odoo>

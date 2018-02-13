@@ -1,0 +1,61 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+      <record model="ir.ui.view" id="dw_proma.list_helices">
+      <field name="name">Listado helices</field>
+      <field name="model">dw_proma.helice</field>
+      <field name="arch" type="xml">
+        <tree>
+
+
+        </tree>
+      </field>
+    </record>
+
+
+
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="dw_proma.action_window_helice">
+      <field name="name">Ventana de helices</field>
+      <field name="res_model">dw_proma.helice</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="dw_proma.action_server">
+      <field name="name">dw_proma server</field>
+      <field name="model_id" ref="model_dw_proma_dw_proma"/>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+
+
+
+    <!-- menu categories -->
+
+    <menuitem name="Helices" id="dw_proma.helices" parent="dw_proma.menu_root"/>
+
+
+    <!-- actions -->
+
+    <menuitem name="Helices" id="dw_proma.helices_list" parent="dw_proma.helices"
+              action="dw_proma.action_window_helice"/>
+
+
+  </data>
+</odoo>

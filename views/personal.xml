@@ -1,0 +1,92 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+      <record model="ir.ui.view" id="dw_proma.list_personas">
+        <field name="name">Listado</field>
+        <field name="model">dw_proma.persona</field>
+        <field name="arch" type="xml">
+          <tree>
+            <field name="nombres"/>
+            <field name="documento"/>
+            <field name="rh"/>
+            <field name="cargo"/>
+            <field name="celular"/>
+            <field name="email"/>
+
+
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="dw_proma.list_certificaciones">
+      <field name="name">Listado</field>
+      <field name="model">dw_proma.certificacion</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="tipo_certificado" />
+          <field name="numero_certificado" />
+          <field name="fecha_expedicion" />
+          <field name="fecha_vencimiento" />
+          <field name="remanente" readonly="1" />
+          <field name="archivo" />
+          <field name="personal_id" />
+          <field name="observaciones" />
+          <field name="vencido" readonly="1" />
+
+      </tree>
+    </field>
+  </record>
+
+  <!-- Employee -->
+
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="dw_proma.action_window_persona">
+      <field name="name">Lista Personal</field>
+      <field name="res_model">dw_proma.persona</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="dw_proma.action_window_certificado">
+      <field name="name">Lista Certificaciones</field>
+      <field name="res_model">dw_proma.certificacion</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="dw_proma.action_server">
+      <field name="name">dw_proma server</field>
+      <field name="model_id" ref="model_dw_proma_dw_proma"/>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+
+    <menuitem name="Proma Aviation" id="dw_proma.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Personal" id="dw_proma.personal" parent="dw_proma.menu_root"/>
+
+
+    <!-- actions -->
+
+    <menuitem name="Empleados" id="dw_proma.personal_list" parent="dw_proma.personal"
+              action="dw_proma.action_window_persona"/>
+    <menuitem name="Certificaciones" id="dw_proma.certificaciones" parent="dw_proma.personal"
+              action="dw_proma.action_window_certificado"/>
+
+  </data>
+</odoo>
