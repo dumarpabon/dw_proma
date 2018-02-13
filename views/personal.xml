@@ -28,11 +28,11 @@
           <field name="numero_certificado" />
           <field name="fecha_expedicion" />
           <field name="fecha_vencimiento" />
-          <field name="remanente" readonly="1" />
+          <field name="remanente"  />
           <field name="archivo" />
           <field name="personal_id" />
           <field name="observaciones" />
-          <field name="vencido" readonly="1" />
+          <field name="vencido"  />
 
       </tree>
     </field>
